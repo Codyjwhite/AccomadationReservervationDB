@@ -1,0 +1,41 @@
+--Create Triggers
+
+CREATE OR REPLACE TRIGGER account_before_insert
+BEFORE INSERT ON ACCOUNT
+FOR EACH ROW
+BEGIN
+  :new.Account_ID := 'A' || TO_CHAR(account_id_seq.NEXTVAL, 'FM000000000');
+END;
+/
+
+CREATE OR REPLACE TRIGGER reservation_before_insert
+BEFORE INSERT ON RESERVATION
+FOR EACH ROW
+BEGIN
+  :new.Res_ID := 'R' || TO_CHAR(reservation_id_seq.NEXTVAL, 'FM000000000');
+END;
+/
+
+CREATE OR REPLACE TRIGGER location_before_insert
+BEFORE INSERT ON LOCATION
+FOR EACH ROW
+BEGIN
+  :new.Location_ID := 'L' || TO_CHAR(location_id_seq.NEXTVAL, 'FM000000000');
+END;
+/
+
+CREATE OR REPLACE TRIGGER user_review_before_insert
+BEFORE INSERT ON USER_REVIEW
+FOR EACH ROW
+BEGIN
+  :new.Review_ID := 'UR' || TO_CHAR(user_review_id_seq.NEXTVAL, 'FM000000000');
+END;
+/
+
+CREATE OR REPLACE TRIGGER service_log_before_insert
+BEFORE INSERT ON SERVICE_LOG
+FOR EACH ROW
+BEGIN
+  :new.Log_ID := 'SL' || TO_CHAR(service_Log_id_seq.NEXTVAL, 'FM000000000');
+END;
+/
