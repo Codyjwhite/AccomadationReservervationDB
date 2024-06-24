@@ -1,0 +1,17 @@
+-- Create Indexes
+
+--Natural Keys
+CREATE INDEX index_location_physAddress ON LOCATION (Physical_Address);
+
+--Foreign Keys
+CREATE INDEX index_reservation_account ON RESERVATION (Account_ID);
+CREATE INDEX index_reservation_location ON RESERVATION (Location_ID);
+CREATE INDEX index_user_review ON USER_REVIEW (Res_ID);
+CREATE INDEX index_service_log_locationid ON SERVICE_LOG (Location_ID);
+
+--Common Queries
+CREATE INDEX index_account_l_name ON ACCOUNT (L_NAME);
+CREATE INDEX index_reservation_startdate ON RESERVATION (Start_Date);
+CREATE INDEX index_user_review_rating ON USER_REVIEW (Rating);
+CREATE INDEX index_user_review_reviewdate ON USER_REVIEW (Review_DATE);
+CREATE INDEX index_servicelog_service_date ON SERVICE_LOG (Service_Date);
